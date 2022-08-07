@@ -128,7 +128,117 @@
 
 # 디폴트인수
 
-def sayhello(name,msg = "반갑습니다"):
-    print("안녕",name + "," + msg)
+# def sayhello(name,msg = "반갑습니다"):
+# #     print("안녕",name + "," + msg)
+# #
+# # sayhello('하하','재미없어')
+#
+#
+# # 람다에서 가변 인수 사용
+#
+# calc = lambda dan, su : dan * su
+# print('price=', calc(2500,5))
+#
+# calc2 = lambda dan, *su, **product : print(dan,su,product)
+# calc2(10000, 3, 5, a = 2500, b = 3000)
+#
+# # scope: 전역변수/지역변수
+# # 전역변수: 전 지역 사용
+# # 지역변수: 함수 or 블럭 (if, while, for) 사용
+#
+# def local_func(x):
+# #     x +=50
+# #     return x
+# #
+# #
+# # print(local_func(1))
+# #
+# # y= 0
+# # def local_func():
+# #     global y
+# #     y +=50
+# #
+# # print('y:',y)
+# # local_func()
+# # print('y:',y)
+# # local_func()
+# # print('y:',y)
+# #
+# # # 졸려용
+# #
+# # data = [1, 3, 5, 7, 9]
+# # tot = 0
+# #
+# # def calc_func(data):
+# #     global tot
+# #     tot = sum(data)
+# #     return tot
+# #
+# # print(tot)
+# # calc_func(data)
+# # print(tot)
+# # calc_func(data)
+# # print(tot)
+#
+#
+# # 중첩함수 (nested function) - 내수함수를 외부함수 내에서 호출
+#
+# def outfunc(txt):
+#     def innerfunc():
+#         print(txt+"me-long")
+#
+#     innerfunc()
+# outfunc("하하")
+#
+# #  중첩함수 - 외부함수 리턴값으로 내부함수 지정
+#
+# def a():
+#     print('a함수')
+#     def b():
+#         print('b함수')
+#     return b
+#
+# z = a()
+# z()
+#
+# data = list(range(1, 101))
+#
+# def calc_data(data):
+#     # 합계 inner 함수
+#
+#     def tot():
+#         tot_val = sum(data)
+#         return tot_val
+#
+#     # 평균 inner 함수
+#     def avg(tot_val):
+#         avg_val = tot_val/ len(data)
+#         return avg_val
+#     return tot, avg
+#
+# total, avgrage = calc_data(data)
+# tot_val = total()
+# print('total',tot_val)
+#
+# avg_val = avgrage(tot_val)
+# print('total',tot_val)
 
-sayhello('하하','재미없어')
+# getter, setter 에 대한 개념
+# getter 값을 가져오는 역할, setter 값을 지정하는 역할을 하는 함수
+
+# 래퍼함수
+
+def wrap(func):
+    def decorated():
+        print("hi")
+
+        func()
+        print('bye')
+    return decorated
+
+@wrap
+def hello():
+    print('아이유')
+
+hello()
+
